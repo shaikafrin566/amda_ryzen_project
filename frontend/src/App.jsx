@@ -1,39 +1,48 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Activity } from 'lucide-react';
-import './App.css';
-
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+import Sidebar from './components/Sidebar';
 import LandingPage from './pages/LandingPage';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Onboarding from './pages/Onboarding';
 import Dashboard from './pages/Dashboard';
 import DailyCheckIn from './pages/DailyCheckIn';
 import FoodScanner from './pages/FoodScanner';
+import VoiceAssistant from './pages/VoiceAssistant';
+import './App.css';
 
-// Create a component to conditionally render the navbar
+const FULL_SCREEN_ROUTES = ['/', '/login', '/signup', '/onboarding'];
+
 const AppContent = () => {
+  const { user, loading } = useAuth();
   const location = useLocation();
-  const showNav = location.pathname !== '/';
+  const isFullScreen = FULL_SCREEN_ROUTES.includes(location.pathname);
+
+  if (loading) return (
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ width: 48, height: 48, border: '4px solid rgba(0,240,255,0.2)', borderLeftColor: 'var(--accent-cyan)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+    </div>
+  );
 
   return (
     <div className="app-container">
-      <main className="main-content">
-        {showNav && (
-          <header className="app-header animate-fade-in">
-            <div className="logo">
-              <Activity color="var(--accent-cyan)" size={32} />
-              NutriVibe AI
-            </div>
-            <nav className="nav-links">
-              <Link to="/dashboard" className="nav-link">Dashboard</Link>
-              <Link to="/check-in" className="nav-link">Check-In</Link>
-              <Link to="/scan" className="nav-link">Scanner</Link>
-            </nav>
-          </header>
-        )}
-
+      {!isFullScreen && user && <Sidebar />}
+      <main className={isFullScreen ? 'full-screen' : 'app-main'}>
         <Routes>
+          {/* Public routes */}
           <Route path="/" element={<LandingPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/check-in" element={<DailyCheckIn />} />
-          <Route path="/scan" element={<FoodScanner />} />
+          <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
+          <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/onboarding" />} />
+          <Route path="/onboarding" element={user ? <Onboarding /> : <Navigate to="/login" />} />
+
+          {/* Protected routes */}
+          <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/check-in" element={user ? <DailyCheckIn /> : <Navigate to="/login" />} />
+          <Route path="/scan" element={user ? <FoodScanner /> : <Navigate to="/login" />} />
+          <Route path="/voice" element={user ? <VoiceAssistant /> : <Navigate to="/login" />} />
+
+          {/* Fallback */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
     </div>

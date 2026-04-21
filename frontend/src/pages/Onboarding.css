@@ -1,0 +1,88 @@
+.onboarding-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.onboarding-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.onboarding-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 800;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--btn-gradient);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.step-counter {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.onboarding-card {
+  padding: 40px;
+}
+
+.onboarding-card h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.onboarding-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+.onboarding-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.onboarding-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.next-btn {
+  background: var(--btn-gradient) !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  box-shadow: 0 8px 24px rgba(0, 240, 255, 0.25);
+}

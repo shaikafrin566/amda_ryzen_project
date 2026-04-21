@@ -1,19 +1,24 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  name: { type: String },
+  profileComplete: { type: Boolean, default: false },
+  // Onboarding profile data
   age: { type: Number },
   gender: { type: String },
   height: { type: Number },
   weight: { type: Number },
   allergies: [{ type: String }],
-  preferences: [{ type: String }],
-  budget: { type: String }, // e.g. "Low", "Medium", "High"
-  goal: { type: String }, // e.g. "fat loss", "muscle gain"
-  healthScore: { type: Number, default: 80 },
-  streak: { type: Number, default: 0 }
+  dietPreference: { type: String }, // e.g. 'veg', 'vegan', 'keto'
+  budget: { type: String }, // 'low', 'medium', 'high'
+  fitnessGoal: { type: String }, // 'fat loss', 'muscle gain', 'healthy lifestyle'
+  // Gamification
+  healthScore: { type: Number, default: 72 },
+  streak: { type: Number, default: 0 },
+  waterIntake: { type: Number, default: 0 },
+  badges: [{ type: String }],
 }, { timestamps: true });
 
 export default mongoose.model('User', userSchema);
