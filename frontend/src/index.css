@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Ultra-Premium Aurora Theme */
+  --bg-primary: #030014; /* Deep Space Black */
+  --bg-secondary: #0b0726;
+  --text-primary: #ffffff;
+  --text-secondary: #8b949e;
+  
+  /* Aurora Accents */
+  --accent-cyan: #00f0ff;
+  --accent-purple: #8a2be2;
+  --accent-pink: #ff0055;
+  
+  /* Primary Button Gradient */
+  --btn-gradient: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  
+  /* Status Colors */
+  --success-color: #00ff9d;
+  --warning-color: #ffb800;
+  --danger-color: #ff3366;
+  
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(11, 7, 38, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  /* Subtle noise texture or radial gradient base */
+  background-image: radial-gradient(circle at 50% 0%, rgba(138, 43, 226, 0.15), transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1), transparent 50%);
+  background-attachment: fixed;
+}
+
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Base App Layout */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Scrollbar styling for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}

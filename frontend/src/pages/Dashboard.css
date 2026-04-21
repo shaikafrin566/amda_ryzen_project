@@ -1,0 +1,123 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.dashboard-header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: var(--text-secondary);
+}
+
+.health-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, var(--accent-color), #00c6ff);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.3);
+}
+
+.score-value {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.stat-icon.flame { background: linear-gradient(135deg, #ff9500, #ff5e3a); }
+.stat-icon.water { background: linear-gradient(135deg, #34aadc, #007aff); }
+.stat-icon.apple { background: linear-gradient(135deg, #34c759, #32ade6); }
+
+.stat-info h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.stat-info p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.dashboard-main-sections {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-main-sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-section h2, .recommendation-section h2 {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.chart-container {
+  margin-top: 16px;
+}
+
+.rec-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rec-content h3 {
+  font-size: 22px;
+  color: var(--accent-color);
+}
+
+.rec-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: rgba(0, 113, 227, 0.1);
+  color: var(--accent-color);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}

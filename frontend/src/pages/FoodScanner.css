@@ -1,0 +1,138 @@
+.scanner-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.scanner-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .scanner-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  text-align: center;
+  border: 2px dashed var(--glass-border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.upload-placeholder h3 {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.upload-placeholder p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.image-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 113, 227, 0.2);
+  border-left-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.scan-result .result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.scan-result h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.status-badge.healthy {
+  background-color: rgba(52, 199, 89, 0.1);
+  color: var(--success-color);
+}
+
+.status-badge.unhealthy {
+  background-color: rgba(255, 59, 48, 0.1);
+  color: var(--danger-color);
+}
+
+.result-details {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-item .label {
+  color: var(--text-secondary);
+}
+
+.detail-item .value {
+  font-weight: 600;
+}
+
+.alternative-box {
+  background: linear-gradient(135deg, rgba(52, 199, 89, 0.05), rgba(52, 199, 89, 0.1));
+  border-left: 4px solid var(--success-color);
+  padding: 16px;
+  border-radius: 0 12px 12px 0;
+}
+
+.alternative-box h4 {
+  color: var(--success-color);
+  margin-bottom: 8px;
+}
